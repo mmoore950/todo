@@ -1,3 +1,5 @@
+import "./style.css"
+
 import { loadhome } from './loadhome.js'
 
 document.addEventListener('DOMContentLoaded', () => {

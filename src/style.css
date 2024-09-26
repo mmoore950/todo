@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    --bgColor2: #ececec;
+    --bgColor3: #f2f3f5;
+    --bgColor1: #fefcfe;
+    --bgColorPopUp: #f3f1f3;
+    --textColor: #374958;
+    --accentDark: #2abd67;
+    
+}
+
+header {
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--bgColor3);
+}
+
+nav {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    grid: 1fr / 1fr 12fr;
+    border-bottom: solid 2px var(--accentDark);
+}
+
+nav h1 {
+    justify-self: center;
+    font-size: 60px;
+    font-family: "Montserrat";
+    font-weight: 800;
+}
+
+#hamburger {
+    background-color: transparent;
+    border-color: transparent;
+    height: 50px;;
+    width: 50px;
+    font-size: 40px;
+    margin-left: 50px;
+    border-radius: 8px;
+}
+
+button {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: rgba(128, 128, 128, 0.267) !important;
+    transform: translateY(-3px); /* Move the button up slightly */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+button:active {
+    transform: translateY(1px); /* Push the button down when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly reduce the shadow */
+}
+
+.content {
+    display: grid;
+    grid: 1fr / 1fr 6fr;
+    height: 90vh;
+    width: 100%;
+}
+
+.left-panel {
+    grid-column: 1;
+    background-color: var(--bgColor1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.left-panel-hidden {
+
+}
+
+.left-panel h1 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+button span {
+    font-family: "Montserrat"
+}
+
+.right-panel {
+    grid-column: 2;
+    background-color: var(--bgColor2);
+    width: 100%;
+    height: 100%;
+}
+
+.project-header {
+    background-color: var(--accentDark);
+    margin: 30px;
+    height: 10%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 30px;;
+    color: var(--bgColor2);
+    justify-content: center;
+}
+
+#add-proj-btn {
+    background-color: transparent;
+    border-color: transparent;
+}
