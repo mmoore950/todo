@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header>
@@ -18,7 +19,19 @@
     <div class="content">
         <div class="left-panel">
             <h1>Projects</h1>
-            <ul class="project-list"></ul>
+            <ul class="project-list">
+
+            </ul>
+            <div id="proj-add" class="hidden">
+                <div class="proj-add-top">
+                    <h1 class="material-symbols-outlined">chevron_right</h1>
+                    <input class="proj-input" type="text" placeholder="Enter project title">
+                </div>
+                <div class="proj-add-btns">
+                    <button id="add-btn">Add</button>
+                    <button id="cancel-btn">Cancel</button>
+                </div>
+            </div>
             <button id="add-proj-btn"  class="material-symbols-outlined">
                 add
                 <span>Add Project</span>
@@ -26,7 +39,24 @@
         </div>
         <div class="right-panel">
             <div class="project-header">ALL TASKS</div>
+            <ul class="task-list"></ul>
+            <div class="task-add-div">
+                <h1>Title:</h1>
+                <input id="task-title" type="text" placeholder="Go to the gym">
+                <h1>Details:</h1>
+                <textarea id="task-details" placeholder="Walk for 30mins"></textarea>
+                <h1>Date:</h1>
+                <input id='task-date' type="date">
+                <div id="add-task-btns">
+                    <button id="task-add">Add</button>
+                    <button id="task-cancel">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
+    <div id="menu" class="menu">
+        <button id="renameBtn">Rename</button>
+        <button id="deleteBtn">Delete</button>
+      </div>
 </body>
 </html>

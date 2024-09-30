@@ -20,6 +20,7 @@ header {
     width: 100vw;
     height: 10vh;
     background-color: var(--bgColor3);
+    box-sizing: border-box;
 }
 
 nav {
@@ -65,9 +66,10 @@ button:active {
 
 .content {
     display: grid;
-    grid: 1fr / 1fr 6fr;
+    grid-template-columns: 1fr 6fr;
     height: 90vh;
     width: 100%;
+    transition: grid-template-columns 0.5s ease;
 }
 
 .left-panel {
@@ -76,16 +78,25 @@ button:active {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    transition: transform 0.5s ease;
+    height: 100%;
 }
 
-.left-panel-hidden {
+.content.hide-left .left-panel {
+    transform: translateX(-100%);
+    display: none;
+  }
+  
+  .content.hide-left {
+    grid-template-columns: 0 1fr; /* Left panel disappears, right panel fills entire width */
+  }
 
-}
 
-.left-panel h1 {
+.left-panel > h1 {
     font-family: "Montserrat";
     font-weight: 800;
     margin-bottom: 10px;
+    border-bottom: 2px solid var(--textColor);
 }
 
 button span {
@@ -97,18 +108,23 @@ button span {
     background-color: var(--bgColor2);
     width: 100%;
     height: 100%;
+    transition: width 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .project-header {
     background-color: var(--accentDark);
-    margin: 30px;
+    margin-bottom: 12px;
     height: 10%;
     border-radius: 10px;
     display: flex;
     align-items: center;
     font-family: "Montserrat";
     font-weight: 800;
-    font-size: 30px;;
+    font-size: 30px;
     color: var(--bgColor2);
     justify-content: center;
 }
@@ -116,4 +132,210 @@ button span {
 #add-proj-btn {
     background-color: transparent;
     border-color: transparent;
+}
+
+.hidden {
+    max-height: 0;
+    width: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.visible {
+    max-height: 125px;
+}
+
+#proj-add {
+    transition: max-height 0.3s ease-in-out;
+    display: flex;
+    height: 7vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+
+#proj-add h1 {
+    font-family: 'Material Symbols Outlined';
+    font-size: 35px;
+    margin: 0;
+}
+
+
+.proj-add-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+
+.proj-input {
+    height: 2vh;
+    font-family: 'Montserrat';
+    border: 2px solid black;
+}
+
+#add-btn, #cancel-btn {
+    background-color: green;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    color: white;
+    padding: 4px;
+}
+
+#cancel-btn {
+    background-color: red;
+}
+
+.proj-add-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-div {
+    display: grid; 
+    grid-template-columns: 1fr 6fr 1fr;
+    width: 100%;
+    align-items: center;
+    
+}
+
+.project-title {
+    font-weight: 500;
+    font-family: "Montserrat";
+    font-size: 24px;
+    grid-column: 2;
+    background-color: transparent;
+    border-color: transparent;
+    text-align: left;
+}
+
+.project-icon {
+    font-family: "Material Symbols Outlined" !important;
+    grid-column: 1;
+}
+
+.project-more {
+    font-family: "Material Symbols Outlined";
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: transparent;
+    font-size: 24px;
+    grid-column: 3;
+    position: relative;
+}
+
+
+
+.menu {
+display: none; /* Initially hidden */
+position: absolute;
+background-color: #f9f9f9;
+border: 1px solid #ccc;
+padding: 10px;
+z-index: 1000;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.menu button {
+display: block;
+background: none;
+border: none;
+padding: 8px 16px;
+width: 100%;
+text-align: left;
+cursor: pointer;
+}
+
+.menu button:hover {
+background-color: #ddd;
+}
+
+.add-task-button {
+    display: none;
+    font-family: 'Material Symbols Outlined';
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: transparent;
+    font-size: 20px;
+    flex-grow: 0;           /* Prevent the button from growing */
+    flex-shrink: 0;         /* Prevent the button from shrinking */
+    flex-basis: auto;       /* Ensure the button’s width is based on content */
+    width: auto;            /* Ensure width is determined by the content */
+    min-width: max-content; /* Take up only the width needed for the content */
+    align-self: center;
+}
+
+#add-task {
+    font-family: "Montserrat";
+    cursor: pointer;
+    transform: translateY(100%)
+}
+
+
+.task-add-div {
+    display: none;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: var(--bgColor1);
+    width: 30vw;
+    align-self: center;
+}
+
+.task-add-div h1{
+    font-family: "Montserrat";
+    font-weight: 600 !important;
+}
+.task-add-div input {
+    height: 10%;
+    border: 2px solid black;
+    padding: 3px;
+}
+
+#task-details {
+    height: 5vh;
+    padding: 3px;
+}
+
+#add-task-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+
+}
+
+#task-add, #task-cancel {
+    width: 3vw;
+    height: 2vh;
+    margin-right: 8px;
+    border-radius: 8px;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: 700
+}
+
+#task-add {
+    background-color: green;
+}
+
+#task-cancel {
+    background-color: red;
+}
+
+.task-div {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 2px 2px 2px;
+    margin-bottom: 10px;
 }
